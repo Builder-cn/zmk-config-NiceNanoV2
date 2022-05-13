@@ -9,9 +9,8 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define DEFAULT 0
-#define LOWER 1
-#define RAISE 2
-#define LS 3
+#define LOWER   1
+#define RAISE   2
 
 / {
         keymap {
@@ -55,22 +54,6 @@
    &trans  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &kp LEFT  &kp DOWN  &kp UP           &kp RIGHT  &trans    &trans
    &trans  &trans       &trans       &trans       &trans       &bt BT_CLR    &trans    &trans    &trans           &trans     &trans    &trans
                     	             &trans       &trans       &trans        &trans    &trans    &trans
-                        >;
-                };
-        };
-};
-
-                ls_layer {
-// -----------------------------------------------------------------------------------------
-// |      |     |     |     |     |       |   |     |     |     |     |     |      |
-// |      |     |     |     |     |       |   | LFT | DWN |  UP | RGT |     |      |
-// |      |     |     |     |     |       |   |     |     |     |     |     |      |
-//                    |     |     |       |   |     |     |     |
-                        bindings = <
-   &trans  &trans  &trans  &trans  &trans  &trans   &trans    &trans    &trans  &trans     &trans  &trans
-   &trans  &trans  &trans  &trans  &trans  &trans   &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
-   &trans  &trans  &trans  &trans  &trans  &trans   &trans    &trans    &trans  &trans     &trans  &trans
-          	           &trans  &trans  &trans   &trans    &trans    &trans
                         >;
                 };
         };
