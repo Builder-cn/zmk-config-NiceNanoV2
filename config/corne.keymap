@@ -11,6 +11,7 @@
 #define DEFAULT 0
 #define LOWER   1
 #define RAISE   2
+#define LSCUSTOM 3
 
 / {
         keymap {
@@ -20,7 +21,7 @@
 // -----------------------------------------------------------------------------------------
 // | ESC  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
 // | TAB  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  | ENT  |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | LS   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | LSCU |
 //                    | CTRL| GUI | ALT |   | SPC | RSE  | LWR |
                         bindings = <
    &kp ESC   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
@@ -29,6 +30,7 @@
                   &kp LCTRL &kp LGUI &kp LALT   &kp SPACE &mo 2 &mo 1
                         >;
                 };
+
                 lower_layer {
 // -----------------------------------------------------------------------------------------
 // |  `   |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL  |
@@ -46,15 +48,30 @@
                 raise_layer {
 // -----------------------------------------------------------------------------------------
 // |      |  !  |  @  |  #  |  $  |   %   |   |  ^  |  &  |  *  |  (  |  )  |      |
-// |      | BT1 | BT2 | BT3 | BT4 |  BT5  |   | LFT | DWN |  UP | RGT |     |      |
-// |      |     |     |     |     | BTCLR |   |     |     |     |     |     |      |
+// |      |     |     |     |     |       |   | LFT | DWN |  UP | RGT |     |      |
+// |      |     |     |     |     |       |   |     |     |     |     |     |      |
 //                    |     |     |       |   |     |     |     |
                         bindings = <
    &trans  &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT     &kp CARET &kp AMPS  &kp KP_MULTIPLY  &kp LPAR   &kp RPAR  &trans
-   &trans  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &kp LEFT  &kp DOWN  &kp UP           &kp RIGHT  &trans    &trans
-   &trans  &trans       &trans       &trans       &trans       &bt BT_CLR    &trans    &trans    &trans           &trans     &trans    &trans
-                    	             &trans       &trans       &trans        &trans    &trans    &trans
+   &trans  &trans       &trans       &trans       &trans       &trans        &kp LEFT  &kp DOWN  &kp UP           &kp RIGHT  &trans    &trans
+   &trans  &trans       &trans       &trans       &trans       &trans        &trans    &trans    &trans           &trans     &trans    &trans
+                                     &trans       &trans       &trans        &trans    &trans    &trans
                         >;
                 };
+
+                lscustom_layer {
+// -----------------------------------------------------------------------------------------
+// |     |     |     |     |     |       |   |     |     |     |     |     |     |
+// |     | BT1 | BT2 | BT3 | BT4 |  BT5  |   |     |     |     |     |     |     |
+// |     |     |     |     |     | BTCLR |   |     |     |     |     |     |     |
+//                   |     |     |       |   |     |     |     |
+                        bindings = <
+   &trans  &trans       &trans       &trans       &trans       &trans        &trans    &trans    &trans    &trans     &trans    &trans
+   &trans  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &trans    &trans    &trans    &trans     &trans    &trans
+   &trans  &trans       &trans       &trans       &trans       &bt BT_CLR    &trans    &trans    &trans    &trans     &trans    &trans
+                                     &trans       &trans       &trans        &trans    &trans    &trans
+                        >;
+                };
+
         };
 };
